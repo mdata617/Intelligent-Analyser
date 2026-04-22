@@ -1,0 +1,134 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShopMetrics Dashboard</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="layout">
+
+<!-- Sidebar -->
+<aside class="sidebar" id="sidebar">
+    <div class="logo">
+        <div class="logo-icon">📊</div>
+        <span>ShopMetrics</span>
+    </div>
+
+    <nav class="menu">
+        <a href="#" class="active">Dashboard</a>
+        <a href="#upload">Upload Data</a>
+        <a href="#analytics">Analytics</a>
+        <a href="#prediction">Prediction</a>
+        <a href="#about">About</a>
+    </nav>
+</aside>
+
+<!-- Main -->
+<main class="main" id="main">
+
+<header class="topbar">
+    <div class="top-left">
+        <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+        <h1>Analytics Dashboard</h1>
+    </div>
+</header>
+
+<!-- Upload -->
+<section class="upload-section" id="upload">
+
+<div class="card">
+    <h2>Upload Sales File</h2>
+    <p>Upload CSV / Excel file for analytics</p>
+
+    <label class="dropzone" for="fileInput">
+        <input type="file" id="fileInput" accept=".csv,.xlsx,.xls">
+        <span>⬆️</span>
+        <strong id="fileName">Drop file here or Browse</strong>
+        <small>.csv .xlsx .xls</small>
+    </label>
+</div>
+
+</section>
+
+<!-- KPI -->
+<section class="kpi-grid">
+
+<div class="card kpi">
+<span>Total Sales</span>
+<h2>₹1,40,320</h2>
+<small>+9.7% Growth</small>
+</div>
+
+<div class="card kpi">
+<span>Avg Monthly</span>
+<h2>₹11,693</h2>
+<small>12 Months</small>
+</div>
+
+<div class="card kpi">
+<span>Forecast</span>
+<h2>₹18,247</h2>
+<small>Next Month</small>
+</div>
+
+<div class="card kpi">
+<span>Customers</span>
+<h2>8</h2>
+<small>High Value</small>
+</div>
+
+</section>
+
+<!-- Charts -->
+<section class="chart-grid" id="analytics">
+
+<div class="card">
+<h3>Monthly Sales</h3>
+<canvas id="salesChart"></canvas>
+</div>
+<div class="card">
+<h3>Prediction Trend</h3>
+<canvas id="predictionChart"></canvas>
+</div>
+
+</section>
+
+<!-- Bottom -->
+<section class="bottom-grid" id="prediction">
+
+<div class="card">
+<h3>Customer Segmentation</h3>
+<div class="circle" id="segmentCircle"></div>
+<p id="segmentText">High Value Customers: --</p>
+</div>
+
+<div class="card">
+<h3>Business Insights</h3>
+<ul class="insights" id="insightList">
+<li>Upload file to generate insights</li>
+</ul>
+</div>
+
+</section>
+
+<!-- About -->
+<section class="card about" id="about">
+<h3>About Project</h3>
+<p>
+Intelligent E-Commerce Sales Analytics System using
+Frontend + Flask + Pandas + MySQL + Machine Learning.
+</p>
+</section>
+
+</main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
